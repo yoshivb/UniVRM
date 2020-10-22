@@ -29,7 +29,7 @@ namespace VRM
             {
                 var name = binding.RelativePath.Split('/').Last();
                 var foundComponents = root.GetComponentsInChildren<Transform>().Where(x => x.name == name);
-                if(foundComponents.Num() > 0)
+                if(foundComponents.Count() > 0)
                 {
                     found = foundComponents.First();
                 }
