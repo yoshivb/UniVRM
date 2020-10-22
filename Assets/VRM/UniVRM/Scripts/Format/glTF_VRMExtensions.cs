@@ -28,7 +28,12 @@ namespace VRM
             if (found == null)
             {
                 var name = binding.RelativePath.Split('/').Last();
-                found = root.GetComponentsInChildren<Transform>().Where(x => x.name == name).First();
+                var foundComponents = root.GetComponentsInChildren<Transform>().Where(x => x.name == name);
+                if(foundComponents.Num() > 0)
+                {
+                    found = foundComponents.First();
+                }
+                
                 if (found == null)
                 {
                     Debug.LogWarning($"{binding.RelativePath} not found");
